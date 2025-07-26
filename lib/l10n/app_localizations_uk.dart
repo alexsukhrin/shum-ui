@@ -12,13 +12,19 @@ class AppLocalizationsUk extends AppLocalizations {
   String get appTitle => 'Shum UI';
 
   @override
-  String get counterTitle => 'Демо Flutter Головна Сторінка';
+  String get welcomeTitle => 'Привіт!';
 
   @override
-  String get counterText => 'Ви натиснули кнопку стільки разів:';
+  String get welcomeSubtitle => 'Отримай безпечний досвід покупок разом з нами';
 
   @override
-  String get incrementButton => 'Збільшити';
+  String get registerButton => 'Зареєструватись';
+
+  @override
+  String get loginButton => 'Увійти';
+
+  @override
+  String get skipButton => 'Пропустити цей крок';
 
   @override
   String get languageSelector => 'Мова';

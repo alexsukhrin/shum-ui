@@ -4,17 +4,25 @@
   "@appTitle": {
     "description": "The title of the application"
   },
-  "counterTitle": "Flutter Demo Home Page",
-  "@counterTitle": {
-    "description": "The title of the counter page"
+  "welcomeTitle": "Hello!",
+  "@welcomeTitle": {
+    "description": "Welcome page title"
   },
-  "counterText": "You have pushed the button this many times:",
-  "@counterText": {
-    "description": "Text displayed above the counter"
+  "welcomeSubtitle": "Get a secure shopping experience with us",
+  "@welcomeSubtitle": {
+    "description": "Welcome page subtitle"
   },
-  "incrementButton": "Increment",
-  "@incrementButton": {
-    "description": "Tooltip for the increment button"
+  "registerButton": "Register",
+  "@registerButton": {
+    "description": "Register button text"
+  },
+  "loginButton": "Log In",
+  "@loginButton": {
+    "description": "Login button text"
+  },
+  "skipButton": "Skip this step",
+  "@skipButton": {
+    "description": "Skip button text"
   },
   "languageSelector": "Language",
   "@languageSelector": {

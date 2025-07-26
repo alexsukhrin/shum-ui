@@ -4,17 +4,25 @@
   "@appTitle": {
     "description": "The title of the application"
   },
-  "counterTitle": "Демо Flutter Головна Сторінка",
-  "@counterTitle": {
-    "description": "The title of the counter page"
+  "welcomeTitle": "Привіт!",
+  "@welcomeTitle": {
+    "description": "Welcome page title"
   },
-  "counterText": "Ви натиснули кнопку стільки разів:",
-  "@counterText": {
-    "description": "Text displayed above the counter"
+  "welcomeSubtitle": "Отримай безпечний досвід покупок разом з нами",
+  "@welcomeSubtitle": {
+    "description": "Welcome page subtitle"
   },
-  "incrementButton": "Збільшити",
-  "@incrementButton": {
-    "description": "Tooltip for the increment button"
+  "registerButton": "Зареєструватись",
+  "@registerButton": {
+    "description": "Register button text"
+  },
+  "loginButton": "Увійти",
+  "@loginButton": {
+    "description": "Login button text"
+  },
+  "skipButton": "Пропустити цей крок",
+  "@skipButton": {
+    "description": "Skip button text"
   },
   "languageSelector": "Мова",
   "@languageSelector": {

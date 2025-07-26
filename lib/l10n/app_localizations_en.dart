@@ -12,13 +12,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appTitle => 'Shum UI';
 
   @override
-  String get counterTitle => 'Flutter Demo Home Page';
+  String get welcomeTitle => 'Hello!';
 
   @override
-  String get counterText => 'You have pushed the button this many times:';
+  String get welcomeSubtitle => 'Get a secure shopping experience with us';
 
   @override
-  String get incrementButton => 'Increment';
+  String get registerButton => 'Register';
+
+  @override
+  String get loginButton => 'Log In';
+
+  @override
+  String get skipButton => 'Skip this step';
 
   @override
   String get languageSelector => 'Language';

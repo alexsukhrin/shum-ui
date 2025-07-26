@@ -101,23 +101,35 @@ abstract class AppLocalizations {
   /// **'Shum UI'**
   String get appTitle;
 
-  /// The title of the counter page
+  /// Welcome page title
   ///
   /// In en, this message translates to:
-  /// **'Flutter Demo Home Page'**
-  String get counterTitle;
+  /// **'Hello!'**
+  String get welcomeTitle;
 
-  /// Text displayed above the counter
+  /// Welcome page subtitle
   ///
   /// In en, this message translates to:
-  /// **'You have pushed the button this many times:'**
-  String get counterText;
+  /// **'Get a secure shopping experience with us'**
+  String get welcomeSubtitle;
 
-  /// Tooltip for the increment button
+  /// Register button text
   ///
   /// In en, this message translates to:
-  /// **'Increment'**
-  String get incrementButton;
+  /// **'Register'**
+  String get registerButton;
+
+  /// Login button text
+  ///
+  /// In en, this message translates to:
+  /// **'Log In'**
+  String get loginButton;
+
+  /// Skip button text
+  ///
+  /// In en, this message translates to:
+  /// **'Skip this step'**
+  String get skipButton;
 
   /// Label for language selector
   ///
