@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'l10n/app_localizations.dart';
+import 'widgets/api_status_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -89,17 +90,27 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              AppLocalizations.of(context)?.counterText ?? 'You have pushed the button this many times:',
-              style: Theme.of(context).textTheme.bodyLarge,
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+          children: [
+            // API Status Widget
+            const ApiStatusWidget(),
+            
+            // Counter Section
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    AppLocalizations.of(context)?.counterText ?? 'You have pushed the button this many times:',
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
+                  Text(
+                    '$_counter',
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
+                ],
+              ),
             ),
           ],
         ),
