@@ -1,32 +1,32 @@
 # Shum UI
 
-Flutter веб-додаток з CI/CD деплоєм на AWS EC2.
+Flutter web application with CI/CD deployment to AWS EC2.
 
-## 🚀 Швидкий старт
+## 🚀 Quick Start
 
-### Локальна розробка
+### Local Development
 
 ```bash
-# Встановити залежності
+# Install dependencies
 flutter pub get
 
-# Запустити в режимі розробки
+# Run in development mode
 flutter run -d web-server --web-port 8080
 
-# Запустити тести
+# Run tests
 flutter test
 ```
 
 ### Docker
 
 ```bash
-# Зібрати образ
+# Build image
 docker build -t shum-ui .
 
-# Запустити локально
+# Run locally
 docker run -p 80:80 shum-ui
 
-# Або використовуючи docker-compose
+# Or using docker-compose
 docker-compose up -d
 ```
 
@@ -34,67 +34,67 @@ docker-compose up -d
 
 ### GitHub Actions
 
-Автоматичний деплой на AWS EC2 при пуші в гілку `master`.
+Automatic deployment to AWS EC2 on push to `master` branch.
 
-**Необхідні секрети в GitHub:**
+**Required GitHub Secrets:**
 - `AWS_ACCESS_KEY_ID` - AWS Access Key
 - `AWS_SECRET_ACCESS_KEY` - AWS Secret Key
-- `EC2_HOST` - IP адреса EC2 інстансу
-- `EC2_USERNAME` - користувач EC2 (зазвичай `ubuntu`)
-- `EC2_SSH_KEY` - приватний SSH ключ
+- `EC2_HOST` - EC2 instance IP address
+- `EC2_USERNAME` - EC2 user (usually `ubuntu`)
+- `EC2_SSH_KEY` - Private SSH key
 
-### Ручний деплой
+### Manual Deployment
 
 ```bash
-# Налаштувати змінні середовища
+# Set environment variables
 export EC2_HOST="your-ec2-ip"
 export EC2_USER="ubuntu"
 
-# Запустити деплой
+# Run deployment
 ./deploy.sh
 ```
 
 ## 🐳 Docker
 
-### Структура
+### Structure
 
-- `Dockerfile` - багатоетапна збірка Flutter + Nginx
-- `nginx.conf` - конфігурація Nginx для Flutter веб-додатку
-- `docker-compose.yml` - оркестрація контейнерів
+- `Dockerfile` - Multi-stage Flutter + Nginx build
+- `nginx.conf` - Nginx configuration for Flutter web app
+- `docker-compose.yml` - Container orchestration
 
-### Особливості
+### Features
 
-- **Multi-stage build** для оптимізації розміру
-- **Gzip компресія** для статичних файлів
-- **Кешування** для кращої продуктивності
-- **Security headers** для безпеки
+- **Multi-stage build** for size optimization
+- **Gzip compression** for static files
+- **Caching** for better performance
+- **Security headers** for security
 - **Health check** endpoint
 
-## 🌐 AWS EC2 Налаштування
+## 🌐 AWS EC2 Setup
 
-### Необхідні сервіси
+### Required Services
 
-1. **EC2 Instance** (t3.micro або більше)
-2. **ECR Repository** для Docker образів
-3. **Security Groups** з відкритим портом 80
+1. **EC2 Instance** (t3.micro or larger)
+2. **ECR Repository** for Docker images
+3. **Security Groups** with port 80 open
 
-### Налаштування EC2
+### EC2 Setup
 
 ```bash
-# Оновити систему
+# Update system
 sudo apt update && sudo apt upgrade -y
 
-# Встановити Docker
+# Install Docker
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 sudo usermod -aG docker $USER
 
-# Встановити Docker Compose
+# Install Docker Compose
 sudo curl -L "https://github.com/docker/compose/releases/download/v2.20.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-## 📊 Моніторинг
+## 📊 Monitoring
 
 ### Health Check
 
@@ -102,49 +102,49 @@ sudo chmod +x /usr/local/bin/docker-compose
 curl http://your-ec2-ip/health
 ```
 
-### Логи
+### Logs
 
 ```bash
-# Docker логи
+# Docker logs
 docker logs shum-app
 
-# Nginx логи
+# Nginx logs
 docker exec shum-app tail -f /var/log/nginx/access.log
 docker exec shum-app tail -f /var/log/nginx/error.log
 ```
 
-## 🔧 Розробка
+## 🔧 Development
 
-### Структура проекту
+### Project Structure
 
 ```
 shum/
-├── lib/                    # Dart код
-├── web/                    # Веб-файли
-├── test/                   # Тести
-├── Dockerfile             # Docker конфігурація
-├── nginx.conf             # Nginx конфігурація
+├── lib/                    # Dart code
+├── web/                    # Web files
+├── test/                   # Tests
+├── Dockerfile             # Docker configuration
+├── nginx.conf             # Nginx configuration
 ├── docker-compose.yml     # Docker Compose
-├── deploy.sh              # Скрипт деплою
+├── deploy.sh              # Deployment script
 └── .github/workflows/     # GitHub Actions
 ```
 
-### Команди
+### Commands
 
 ```bash
-# Аналіз коду
+# Code analysis
 flutter analyze
 
-# Форматування
+# Formatting
 dart format lib/
 
-# Тести
+# Tests
 flutter test
 
-# Збірка для продакшену
+# Production build
 flutter build web --release
 ```
 
-## 📝 Ліцензія
+## 📝 License
 
 MIT License
