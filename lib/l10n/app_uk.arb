@@ -1,0 +1,31 @@
+{
+  "@@locale": "uk",
+  "appTitle": "Shum UI",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "counterTitle": "Демо Flutter Головна Сторінка",
+  "@counterTitle": {
+    "description": "The title of the counter page"
+  },
+  "counterText": "Ви натиснули кнопку стільки разів:",
+  "@counterText": {
+    "description": "Text displayed above the counter"
+  },
+  "incrementButton": "Збільшити",
+  "@incrementButton": {
+    "description": "Tooltip for the increment button"
+  },
+  "languageSelector": "Мова",
+  "@languageSelector": {
+    "description": "Label for language selector"
+  },
+  "english": "English",
+  "@english": {
+    "description": "English language option"
+  },
+  "ukrainian": "Українська",
+  "@ukrainian": {
+    "description": "Ukrainian language option"
+  }
+} 
