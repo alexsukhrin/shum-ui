@@ -1,6 +1,13 @@
 # Shum UI
 
-Flutter web application with CI/CD deployment to AWS EC2.
+Flutter web application with CI/CD deployment to AWS EC2 and multi-environment API support.
+
+## 🌍 Features
+
+- **Internationalization**: English and Ukrainian language support
+- **Multi-environment API**: Automatic switching between local and production APIs
+- **Real-time API status monitoring**
+- **Responsive web design**
 
 ## 🚀 Quick Start
 
@@ -15,6 +22,15 @@ flutter run -d web-server --web-port 8080
 
 # Run tests
 flutter test
+
+## 🔧 API Configuration
+
+The app automatically switches between environments:
+
+- **Development**: `http://localhost:8000/` (local API)
+- **Production**: `http://ec2-18-153-92-5.eu-central-1.compute.amazonaws.com:8032/` (production API)
+
+The API status widget shows the current configuration and connection status.
 ```
 
 ### Docker
