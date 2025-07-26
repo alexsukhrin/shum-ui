@@ -23,7 +23,7 @@ class WelcomePage extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('assets/images/hero-banner.jpg'),
+                    image: AssetImage('assets/images/banners/hero-banner.png'),
                     fit: BoxFit.cover,
                   ),
                 ),
