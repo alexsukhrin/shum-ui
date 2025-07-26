@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import '../styles/colors.dart';
+import '../styles/typography.dart';
+
+import '../widgets/common/custom_button.dart';
+import '../widgets/common/custom_input.dart';
 
 class LoginPage extends StatefulWidget {
   final Function(Locale) onLanguageChanged;
@@ -14,7 +19,6 @@ class _LoginPageState extends State<LoginPage> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   bool _isLoading = false;
-  bool _obscurePassword = true;
 
   @override
   void dispose() {
@@ -58,9 +62,11 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.background,
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Log In'),
+        backgroundColor: AppColors.surface,
+        elevation: 0,
+        title: Text('Log In', style: AppTypography.h4),
         actions: [
           PopupMenuButton<Locale>(
             icon: const Icon(Icons.language),
@@ -98,31 +104,24 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 24),
                 Text(
                   'Welcome Back',
-                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: AppTypography.h2,
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 8),
                 Text(
                   'Sign in to your account',
-                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                    color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.7),
-                  ),
+                  style: AppTypography.bodyLarge,
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 40),
 
                 // Email Field
-                TextFormField(
+                CustomInput(
                   controller: _emailController,
+                  label: 'Email',
+                  hint: 'Enter your email',
                   keyboardType: TextInputType.emailAddress,
-                  decoration: const InputDecoration(
-                    labelText: 'Email',
-                    hintText: 'Enter your email',
-                    prefixIcon: Icon(Icons.email),
-                    border: OutlineInputBorder(),
-                  ),
+                  prefixIcon: const Icon(Icons.email),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter your email';
@@ -136,25 +135,12 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 16),
 
                 // Password Field
-                TextFormField(
+                CustomInput(
                   controller: _passwordController,
-                  obscureText: _obscurePassword,
-                  decoration: InputDecoration(
-                    labelText: 'Password',
-                    hintText: 'Enter your password',
-                    prefixIcon: const Icon(Icons.lock),
-                    suffixIcon: IconButton(
-                      icon: Icon(
-                        _obscurePassword ? Icons.visibility : Icons.visibility_off,
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          _obscurePassword = !_obscurePassword;
-                        });
-                      },
-                    ),
-                    border: const OutlineInputBorder(),
-                  ),
+                  label: 'Password',
+                  hint: 'Enter your password',
+                  obscureText: true,
+                  prefixIcon: const Icon(Icons.lock),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter your password';
@@ -168,19 +154,12 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 24),
 
                 // Login Button
-                ElevatedButton(
+                CustomButton(
+                  text: 'Log In',
                   onPressed: _isLoading ? null : _handleLogin,
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                    textStyle: const TextStyle(fontSize: 18),
-                  ),
-                  child: _isLoading
-                      ? const SizedBox(
-                          height: 20,
-                          width: 20,
-                          child: CircularProgressIndicator(strokeWidth: 2),
-                        )
-                      : const Text('Log In'),
+                  isPrimary: true,
+                  isLoading: _isLoading,
+                  icon: Icons.login,
                 ),
                 const SizedBox(height: 16),
 
