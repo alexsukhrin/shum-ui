@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import '../l10n/app_localizations.dart';
+import '../styles/colors.dart';
+import '../styles/typography.dart';
+import '../styles/dimensions.dart';
+
+import '../widgets/common/custom_button.dart';
 
 class WelcomePage extends StatelessWidget {
   final Function(Locale) onLanguageChanged;
@@ -9,7 +14,7 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFFFFFF),
+      backgroundColor: AppColors.background,
       body: SafeArea(
         child: Row(
           children: [
@@ -25,25 +30,23 @@ class WelcomePage extends StatelessWidget {
                     Row(
                       children: [
                         Container(
-                          width: 40,
-                          height: 40,
+                          width: AppDimensions.iconLg,
+                          height: AppDimensions.iconLg,
                           decoration: BoxDecoration(
-                            color: const Color(0xFFFF6B35),
-                            borderRadius: BorderRadius.circular(8),
+                            color: AppColors.primary,
+                            borderRadius: BorderRadius.circular(AppDimensions.radiusMd),
                           ),
                           child: const Icon(
                             Icons.shopping_bag,
                             color: Colors.white,
-                            size: 24,
+                            size: AppDimensions.iconMd,
                           ),
                         ),
                         const SizedBox(width: 8),
-                        const Text(
+                        Text(
                           'shum',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF333333),
+                          style: AppTypography.h4.copyWith(
+                            color: AppColors.textPrimary,
                           ),
                         ),
                       ],
@@ -80,10 +83,10 @@ class WelcomePage extends StatelessWidget {
                         children: [
                           TextButton(
                             onPressed: () => onLanguageChanged(const Locale('uk')),
-                            child: const Text(
+                            child: Text(
                               'UA',
-                              style: TextStyle(
-                                color: Color(0xFFFF6B35),
+                              style: AppTypography.label.copyWith(
+                                color: AppColors.primary,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -91,10 +94,10 @@ class WelcomePage extends StatelessWidget {
                           const Text(' | '),
                           TextButton(
                             onPressed: () => onLanguageChanged(const Locale('en')),
-                            child: const Text(
+                            child: Text(
                               'ENG',
-                              style: TextStyle(
-                                color: Color(0xFF666666),
+                              style: AppTypography.label.copyWith(
+                                color: AppColors.textSecondary,
                               ),
                             ),
                           ),
@@ -107,62 +110,28 @@ class WelcomePage extends StatelessWidget {
                                          // Welcome Content
                      Text(
                        AppLocalizations.of(context)?.welcomeTitle ?? 'Привіт!',
-                       style: const TextStyle(
-                         fontSize: 48,
-                         fontWeight: FontWeight.bold,
-                         color: Color(0xFF333333),
-                       ),
+                       style: AppTypography.h1,
                      ),
                      const SizedBox(height: 16),
                      Text(
                        AppLocalizations.of(context)?.welcomeSubtitle ?? 'Отримай безпечний досвід покупок разом з нами',
-                       style: const TextStyle(
-                         fontSize: 18,
-                         color: Color(0xFF666666),
-                         height: 1.5,
-                       ),
+                       style: AppTypography.bodyLarge,
                      ),
                     const SizedBox(height: 40),
                     
-                    // Action Buttons
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        onPressed: () => Navigator.pushNamed(context, '/signup'),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFFFF6B35),
-                          foregroundColor: Colors.white,
-                          padding: const EdgeInsets.symmetric(vertical: 16),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          textStyle: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                                                 child: Text(AppLocalizations.of(context)?.registerButton ?? 'Зареєструватись'),
-                      ),
+                                        // Action Buttons
+                    CustomButton(
+                      text: AppLocalizations.of(context)?.registerButton ?? 'Зареєструватись',
+                      onPressed: () => Navigator.pushNamed(context, '/signup'),
+                      isPrimary: true,
+                      icon: Icons.person_add,
                     ),
-                    const SizedBox(height: 16),
-                    SizedBox(
-                      width: double.infinity,
-                      child: OutlinedButton(
-                        onPressed: () => Navigator.pushNamed(context, '/login'),
-                        style: OutlinedButton.styleFrom(
-                          foregroundColor: const Color(0xFFFF6B35),
-                          side: const BorderSide(color: Color(0xFFFF6B35)),
-                          padding: const EdgeInsets.symmetric(vertical: 16),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          textStyle: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                                                 child: Text(AppLocalizations.of(context)?.loginButton ?? 'Увійти'),
-                      ),
+                    const SizedBox(height: AppDimensions.md),
+                    CustomButton(
+                      text: AppLocalizations.of(context)?.loginButton ?? 'Увійти',
+                      onPressed: () => Navigator.pushNamed(context, '/login'),
+                      isPrimary: false,
+                      icon: Icons.login,
                     ),
                     const SizedBox(height: 24),
                     
@@ -174,9 +143,8 @@ class WelcomePage extends StatelessWidget {
                         },
                                                  child: Text(
                            AppLocalizations.of(context)?.skipButton ?? 'Пропустити цей крок',
-                           style: const TextStyle(
-                             color: Color(0xFF999999),
-                             fontSize: 14,
+                           style: AppTypography.bodySmall.copyWith(
+                             color: AppColors.textLight,
                            ),
                          ),
                       ),
